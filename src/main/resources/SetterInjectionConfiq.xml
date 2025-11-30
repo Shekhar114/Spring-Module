@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- 1. Single Data Insertion -->
+	<!-- <bean class="com.spring_core.Spring_Core_Module.setter_injection.Student" name="student">
+		<property name="id">
+				<value>1001</value>
+		</property>
+		<property name="name">
+				<value>Sukhdev Rao</value>
+		</property>
+		<property name="address">
+				<value>Delhi</value>
+		</property>
+		
+	</bean> -->
+		<!-- a. Improve property<> short code -->
+	<!--  <bean class="com.spring_core.Spring_Core_Module.setter_injection.Student" name="student">
+		<property name="id" value="1001" />
+				
+		<property name="name" value="Sukhdev kumar" />
+		
+		<property name="address" value="noida"/>	
+	</bean>  -->
+	
+		<!-- b. Improve bean<> using schema -->
+	<!--  <bean class="com.spring_core.Spring_Core_Module.setter_injection.Student" name="student" p:id="1001" p:name="Sukhdev kumar" p:address="noida" />	 -->
+	
+	<!-- 2. Multiple Data Insertion like - List, Map, and property  -->
+	
+	 <!-- <bean class="com.spring_core.Spring_Core_Module.setter_injection.Student" name="student" p:id="1001" p:name="Sukhdev kumar" p:address="noida" >
+	 	<property name="subjects">
+	 		<list>
+	 			<value>Hindi</value>
+	 			<value>English</value>
+	 			<value>Maths</value>
+	 		</list>
+	 	</property>
+	 </bean>
+	  -->
+	 
+	 <!-- 3. Object references injection other dependent class  -->
+	<!-- <bean class="com.spring_core.Spring_Core_Module.setter_injection.College" name="college" p:college_id="101" p:college_name="HLM College" p:college_address="Duhai Ghaziabad"/>
+
+	 <bean class="com.spring_core.Spring_Core_Module.setter_injection.Student" name="student" p:id="1001" p:name="Sukhdev kumar" p:address="noida" >
+	 	<property name="subjects">
+	 		<list>
+	 			<value>Hindi</value>
+	 			<value>English</value>
+	 			<value>Maths</value>
+	 		</list>
+	 	</property>
+	 	<property name="college">
+	 		<ref bean="college"/>
+	 	</property>
+	 	
+	 </bean> -->
+	 
+	  <!-- a. Object references injection other dependent class  -->
+	 
+	 <bean class="com.spring_core.Spring_Core_Module.setter_injection.College" name="college" p:college_id="101" p:college_name="HLM College" p:college_address="Duhai Ghaziabad"/>
+
+	 <bean class="com.spring_core.Spring_Core_Module.setter_injection.Student" name="student" p:id="1001" p:name="Sukhdev kumar" p:address="noida" >
+	 	<property name="subjects">
+	 		<list>
+	 			<value>Hindi</value>
+	 			<value>English</value>
+	 			<value>Maths</value>
+	 		</list>
+	 	</property>
+	 	<property name="college" ref="college" />
+	 </bean>
+
+</beans>
